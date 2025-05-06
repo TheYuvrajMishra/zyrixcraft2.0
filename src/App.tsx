@@ -1,14 +1,11 @@
-
-import HeroSection from './pages/HeroSection'
-// import CircularNavApp from './pages/CircularNavApp'
+import Wrapper from "./components/Wrapper"
 function App() {
   return (
-    <div className='bg-[var(--color-background)] h-screen overflow-x-hidden'>
-      <HeroSection/>
-      {/* <CircularNavApp /> */}
-
+    <div className='bg-[var(--color-background)] overflow-x-hidden'>
+      <Wrapper />
     </div>
-  )
+  );
 }
+
 
 export default App
