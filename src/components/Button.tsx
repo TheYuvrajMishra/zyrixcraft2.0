@@ -4,7 +4,6 @@ interface ButtonProps {
 }
 function Button({ setOverlay }: ButtonProps) {
   const handleClick = () => {
-    console.log("hello")
     setOverlay(true);
   };
   

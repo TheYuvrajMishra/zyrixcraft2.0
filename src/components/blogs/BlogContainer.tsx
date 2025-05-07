@@ -15,7 +15,7 @@ const BlogContainer: FC<BlogContainerProps> = ({ children }) => {
       id="blogs"
     >
       {/* content container */}
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto ">
         {children}
       </div>
     </motion.div>

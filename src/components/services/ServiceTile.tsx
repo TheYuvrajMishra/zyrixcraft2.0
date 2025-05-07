@@ -24,6 +24,7 @@ const ServiceTile: FC<ServiceTileProps> = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [showDescription, setShowDescription] = useState(false);
   const tileRef = useRef<HTMLDivElement>(null);
   
   // Check if it's a touch device on mount
@@ -49,7 +50,7 @@ const ServiceTile: FC<ServiceTileProps> = ({
       "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80",
       "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80",
     ],
-    3: [ // Automated Solutions
+    3: [ // Smart Solutions 
       "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80",
       "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80",
       "https://images.unsplash.com/photo-1678391845406-3e31a10db004?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80",
@@ -74,6 +75,28 @@ const ServiceTile: FC<ServiceTileProps> = ({
       if (interval) clearInterval(interval);
     };
   }, [isHovered, isExpanded, slideshow.length]);
+
+  // Handle description visibility with delay after expansion
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+  
+    if (isHovered && isExpanded) {
+      // Show immediately when both are true
+      setShowDescription(true);
+    } else if (isHovered || isExpanded) {
+      // Delay showing when only one is true
+      timer = setTimeout(() => {
+        setShowDescription(true);
+      }, 100);
+    } else {
+      // Hide immediately when neither is true
+      setShowDescription(false);
+    }
+  
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [isHovered, isExpanded]);
 
   // expanded tile into view
   useEffect(() => {
@@ -129,14 +152,7 @@ const ServiceTile: FC<ServiceTileProps> = ({
     >
       <motion.div 
         className={`service-tile ${isHovered || isExpanded ? 'expanded' : ''}`}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ 
-          type: "spring", 
-          stiffness: 200, 
-          damping: 20,
-          duration: 0.6
-        }}
+        
       >
         {/* Background slideshow */}
         <div className="service-tile-background">
@@ -153,7 +169,7 @@ const ServiceTile: FC<ServiceTileProps> = ({
         <div className="service-tile-content">
           <h3 className="service-tile-title">{title}</h3>
           
-          <div className="service-tile-description">
+          <div className={`service-tile-description ${showDescription ? 'fade-in-visible' : ''}`}>
             <p>{description}</p>
             
             {/* View Projects text link (for desktop/tablet) */}
@@ -204,4 +220,4 @@ const ServiceTile: FC<ServiceTileProps> = ({
   );
 };
 
-export default ServiceTile; 
+export default ServiceTile;

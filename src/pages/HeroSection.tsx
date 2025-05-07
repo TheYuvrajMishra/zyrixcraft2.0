@@ -13,7 +13,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ setOverlay }) => {
   return (
     <div className="min-h-screen overflow-hidden flex flex-col items-center justify-center px-4 md:px-8 relative ">
       <div className="image-cover bg-no-repeat brightness-50 z-0 top-18 left-20 absolute h-200 w-200">
-        <img src={logo} alt="" />
+        <img src={logo} alt="Temp" />
       </div>
       <Button setOverlay={setOverlay} />
       <NavBar  />
@@ -37,5 +37,4 @@ const HeroSection: React.FC<HeroSectionProps> = ({ setOverlay }) => {
     </div>
   );
 };
-
 export default HeroSection;

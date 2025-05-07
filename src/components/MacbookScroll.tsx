@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { cn } from "../lib/utils";
+import '../App.css'
 import {
   IconBrightnessDown,
   IconBrightnessUp,
@@ -38,11 +39,35 @@ export const MacbookScroll = ({
   });
 
   const [isMobile, setIsMobile] = useState(false);
+  const rotatingWords = ["web", "UI", "graphics","Creativity", "Strategy"];
 
   useEffect(() => {
     if (window && window.innerWidth < 768) {
       setIsMobile(true);
     }
+
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 500);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const [index, setIndex] = useState(0);
+  // const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      // setFade(false); // start fade-out
+
+      setTimeout(() => {
+        // after fade-out complete, update index and fade in
+        setIndex((prev) => (prev + 1) % rotatingWords.length);
+        // setFade(true);
+      }, 1000); // fade duration
+    }, 3000); // full cycle (fade-out + change + fade-in)
+
+    return () => clearInterval(timer);
   }, []);
 
   const scaleX = useTransform(scrollYProgress, [0, 0.3], [1.2, isMobile ? 1 : 1.8]);
@@ -56,7 +81,17 @@ export const MacbookScroll = ({
     <div
       ref={ref}
       className="flex min-h-[280vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80">
-      
+       <div className="text-xl text-white absolute top-20 left-28 sm:text-2xl md:text-3xl font-semibold flex items-center gap-2">
+      <span>Designing the future of your brand with</span>
+
+      <span
+        className={`relative h-[1.5em] text-orange-600 transition-opacity duration-1000 `}
+      >
+        {'{'}{rotatingWords[index]}{'}'}
+      </span>
+
+      <span>.</span>
+    </div>
       {/* Lid */}
       <Lid
         src={src}
@@ -196,7 +231,7 @@ export const Keypad = () => {
         </KBtn>
         <KBtn>
           <IconPlayerTrackNext className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F8</span>
+          <span className="mt-1 inline-block">F9</span>  {/* Changed from F8 to F9 */}
         </KBtn>
         <KBtn>
           <IconVolume3 className="h-[6px] w-[6px]" />

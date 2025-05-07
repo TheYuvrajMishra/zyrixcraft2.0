@@ -8,9 +8,8 @@ import '../components/services/ServiceStyles.css';
 //   ServiceTile
 // } from '../components';
 import ServiceContainer from '../components/services/ServiceContainer';
-import ServiceHeading from '../components/services/ServiceHeading'; 
-import ServiceTile from '../components/services/ServiceTile';
-
+import ServiceHeading from '../components/services/ServiceHeading';
+import ServiceTile from '../components/services/ServiceTile';   
 // Service data
 const serviceData = [
   {
@@ -38,7 +37,7 @@ const serviceData = [
     imageAlt: "UX/UI Design",
   },
   {
-    title: "Automated Solutions",
+    title: "Smart Solutions",
     description: "We develop custom automation solutions that streamline your business processes, reduce manual workload, and increase efficiency. Our solutions are tailored to your specific needs and integrate seamlessly with your existing systems.",
     icon: <FaRobot />,
     link: "/automation",
@@ -49,13 +48,13 @@ const serviceData = [
 
 
 // Service page  
-const Service = () => {
+const Portfolio = () => {
   return (
     <>
       <ServiceContainer>
         {/* Heading */}
         <div className="mb-20">
-          <ServiceHeading title="OUR SERVICES" />
+          <ServiceHeading title="OUR PORTFOLIO" />
         </div>
         
         {/* Services grid */}
@@ -77,4 +76,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default Portfolio;
