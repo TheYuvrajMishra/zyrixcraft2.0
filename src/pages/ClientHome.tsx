@@ -6,6 +6,7 @@ import logo from "../assets/ZyrixcraftLogo.webp";
 import { FiX,FiLinkedin,FiSend  } from "react-icons/fi";
 import { FaArrowDownLong ,FaInstagram , FaXTwitter ,FaWhatsapp   } from "react-icons/fa6";
 import { HiArrowLongDown } from "react-icons/hi2";
+import '../style/BecomeClient.css'
 const ClientHome = ({ setOverlay }) => {
   const [state, handleSubmit] = useForm("xblgzgjv");
   // Show success or error toast based on form submission result

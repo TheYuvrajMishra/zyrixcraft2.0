@@ -84,11 +84,11 @@ export const MacbookScroll = ({
              sm:min-h-[180vh] sm:scale-[0.7] 
              md:min-h-[280vh] md:scale-100 md:py-80">
 
-      <div className="text-xl text-white absolute -top-35 -left-15 w-screen  md:text-3xl font-semibold flex items-center gap-2">
+      <div className="text-[23px] w-[200vw]  text-white absolute -top-35 -left-15  md:top-0 md:left-42   md:text-3xl font-semibold flex gap-2 ">
         <span>Designing the future of your brand with</span>
-
+ 
         <span
-          className={`relative left-[19em]  text-white transition-opacity duration-1000 `}
+          className={` text-orange-600 transition-opacity duration-1000 `}
         >
           {'{'}{rotatingWords[index]}{'}'}
         </span>

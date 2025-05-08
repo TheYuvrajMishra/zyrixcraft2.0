@@ -26,7 +26,7 @@ const Footer = ({ setOverlay }) => {
     return (
         <div
             id="footer"
-            className="w-screen min-h-[80vh] flex flex-col items-center  pt-16"
+            className="w-screen min-h-[80vh] flex flex-col items-center pt-16 user-select-none  pb-10 "
             style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
         >
             {/* Heading and Socials */}
@@ -49,26 +49,26 @@ const Footer = ({ setOverlay }) => {
                             />
                         </div>
                     </div>
-                    <div className="mt-4 flex flex-row items-center justify-center gap-x-8 text-[15px] tracking-[0.2em] font-mono text-white">
+                    <div className="mt-4 flex flex-row items-center justify-center gap-x-6 text-[14px] tracking-[0.2em] font-mono text-white">
                         {socialLinks.map(({ icon: Icon, label, link }, idx) => (
                             <a
                                 key={idx}
                                 href={link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 hover:text-blue-400 transition-colors"
+                                className="flex items-center gap-2 hover:text-blue-400 transition-colors "
                             >
-                                <Icon size={22} />
-                                <span>{label}</span>
+                                <Icon size={22}  />
+                                <span className='hidden md:block'>{label}</span>
                             </a>
                         ))}
                     </div>
                 </div>
 
                 {/* Main Footer Content Container */}
-                <div className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start mt-10">
+                <div className="w-full  pb-5 pl-[2em] max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start mt-10 px-4">
                     {/* Contact Us (left) */}
-                    <div className="text-left">
+                    <div className="text-left md:text-left">
                         <h2 className="text-xl font-bold mb-6 text-white">Contact us</h2>
                         <div className="space-y-4 text-white text-sm">
                             <p>
@@ -90,8 +90,8 @@ const Footer = ({ setOverlay }) => {
                         </div>
                     </div>
 
-                    {/* Orb (center) */}
-                    <div className="flex flex-col items-center justify-center my-8 md:my-0">
+                    {/* Orb (center) - hidden on mobile */}
+                    <div className="hidden md:flex flex-col items-center justify-center my-8 md:my-0">
                         <div style={{ width: '220px', height: '220px', position: 'relative' }}>
                             <Orb
                                 hoverIntensity={0.5}
@@ -104,7 +104,7 @@ const Footer = ({ setOverlay }) => {
                     </div>
 
                     {/* Quick Links (right) */}
-                    <div className="text-right">
+                    <div className="text-left md:text-right mt-8 md:mt-0">
                         <h2 className="text-xl font-bold mb-6 text-white">Quick Links</h2>
                         <div className="space-y-4 text-white text-sm">
                             <a href="#home" className="block hover:underline">Home</a>

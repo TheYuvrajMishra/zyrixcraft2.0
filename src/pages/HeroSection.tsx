@@ -5,6 +5,7 @@ import HeroSectionTopLeftText from "../components/HeroSectionTopLeftText";
 import NavBar from "../components/NavBar";
 import Button from "../components/Button";
 import '../style/HeroSection.css';
+import { RxHamburgerMenu } from "react-icons/rx";
 interface HeroSectionProps {
   setOverlay: (value: boolean) => void;
 }
@@ -16,9 +17,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ setOverlay }) => {
       <div className="image-cover bg-no-repeat brightness-50 z-0 md:top-26 md:left-28   absolute">
         <img src={logo} alt="Temp" className=" md:w-2xs " />
       </div>
-      {/* <div className="cta-btn absolute top-3  min-w-screen bg-amber-200 "> */}
+      <div className=" block absolute top-5 left-[20em] md:hidden  text-white  "> 
+      <RxHamburgerMenu />
+      </div>
         <Button setOverlay={setOverlay} />
-      {/* </div> */}
+      
       <div className="hidden md:block">
         <NavBar />
       </div>
