@@ -1,4 +1,5 @@
 "use client";
+import Logo from "../assets/ZyrixcraftLogo.webp";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { cn } from "../lib/utils";
@@ -39,7 +40,7 @@ export const MacbookScroll = ({
   });
 
   const [isMobile, setIsMobile] = useState(false);
-  const rotatingWords = ["web", "UI", "graphics","Creativity", "Strategy"];
+  const rotatingWords = ["web", "UI", "graphics", "Creativity", "Strategy"];
 
   useEffect(() => {
     if (window && window.innerWidth < 768) {
@@ -74,24 +75,26 @@ export const MacbookScroll = ({
   const scaleY = useTransform(scrollYProgress, [0, 0.3], [0.6, isMobile ? 1 : 1.8]);
   const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
-  const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
     <div
       ref={ref}
-      className="flex min-h-[280vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80">
-       <div className="text-xl text-white absolute top-20 left-28 sm:text-2xl md:text-3xl font-semibold flex items-center gap-2">
-      <span>Designing the future of your brand with</span>
+      className="flex shrink-0 transform flex-col items-center justify-start py-0 
+             min-h-[120vh] scale-[0.6] [perspective:800px] 
+             sm:min-h-[180vh] sm:scale-[0.7] 
+             md:min-h-[280vh] md:scale-100 md:py-80">
 
-      <span
-        className={`relative h-[1.5em] text-orange-600 transition-opacity duration-1000 `}
-      >
-        {'{'}{rotatingWords[index]}{'}'}
-      </span>
+      <div className="text-xl text-white absolute -top-35 -left-15 w-screen  md:text-3xl font-semibold flex items-center gap-2">
+        <span>Designing the future of your brand with</span>
 
-      <span>.</span>
-    </div>
+        <span
+          className={`relative left-[19em]  text-white transition-opacity duration-1000 `}
+        >
+          {'{'}{rotatingWords[index]}{'}'}
+        </span>
+
+        <span>.</span>
+      </div>
       {/* Lid */}
       <Lid
         src={src}
@@ -603,20 +606,7 @@ export const OptionKey = ({
 
 const AceternityLogo = () => {
   return (
-    <svg
-      width="66"
-      height="65"
-      viewBox="0 0 66 65"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-3 w-3 text-white">
-      <path
-        d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-        stroke="currentColor"
-        strokeWidth="15"
-        strokeMiterlimit="3.86874"
-        strokeLinecap="round" />
-    </svg>
+    <img src={Logo} alt="Logo" className="w-[150px] " />
   );
 };
 
