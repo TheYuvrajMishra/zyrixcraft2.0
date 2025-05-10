@@ -18,7 +18,7 @@ function Wrapper() {
       <Service />
       <PcAnimation />
       <Portfolio />
-      <Blog />
+      {/* <Blog /> */}
       <Footer  setOverlay={setOverlay} />
       {overlayOn &&
 

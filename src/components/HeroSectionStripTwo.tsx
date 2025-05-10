@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function HeroSectionStripTwo() {
   return (
-    <div className="absolute  top-[30px] right-0 w-[600px]  h-[600px] z-0">
+    <div className="absolute  top-[30px] right-16 w-[600px]  h-[600px] z-0">
       <div className="relative -z-10 top-[215px] right-[2
       
       0px]  w-[800px] h-10 bg-white text-black rotate-45 overflow-x-hidden flex items-center">
