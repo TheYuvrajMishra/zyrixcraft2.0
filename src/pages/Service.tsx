@@ -1,6 +1,5 @@
-
 import "../App.css";
-import Paragraph from "../components/Paragraph"; // adjust path as needed
+import Paragraph from "../components/Paragraph"; 
 
 interface Card {
   title: string;
@@ -16,7 +15,7 @@ const cardData: Card[] = [
   {
     title: "Graphic Design.",
     description:
-      "From logos to full branding kits, we create visually compelling designs that communicate your message and capture your audience’s attention.",
+      "From logos to full branding kits, we create visually compelling designs that communicate your message and capture your audience's attention.",
   },
   {
     title: "UX/UI Design.",
@@ -30,8 +29,8 @@ const Service: React.FC = () => {
 
   return (
     <div
-      id="service"
-      className="min-h-screen w-full bg-black text-white px-5 sm:px-8 md:px-12 lg:px-20 xl:px-40 py-8 sm:py-12 md:py-15"
+      id="Service"
+      className="w-full bg-black text-white px-5 sm:px-8 md:px-12 lg:px-20 xl:px-40 py-8 sm:py-12 md:py-15 flex flex-col"
     >
       {/* SERVICE Heading */}
       <div className="flex whitespace-nowrap gap-3 sm:flex-row items-center mb-8 sm:mb-12 md:mb-16">
@@ -54,7 +53,7 @@ const Service: React.FC = () => {
       </div>
 
       {/* Animated Text */}
-      <div className="mt-12 ml-3 sm:mt-16 md:mt-20 lg:mt-24">
+      <div className="mt-8 ml-3 sm:mt-10 md:mt-14 mb-8 sm:mb-10 md:mb-14">
         <Paragraph text={text} />
       </div>
     </div>

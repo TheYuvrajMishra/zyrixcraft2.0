@@ -5,8 +5,7 @@ export default function Orb({
   hue = 0,
   hoverIntensity = 0.2,
   rotateOnHover = true,
-  forceHoverState = false,
-  setOverlay
+  forceHoverState = false
 }) {
   const ctnDom = useRef(null);
 
@@ -280,7 +279,7 @@ export default function Orb({
   }, [hue, hoverIntensity, rotateOnHover, forceHoverState]);
 
   return (
-    <div onClick={() => setOverlay(true)} style={{ position: "relative", width: "100%", height: "100%" ,cursor: "pointer"}}>
+    <div  style={{ position: "relative", width: "100%", height: "100%" ,cursor: "pointer"}}>
       {/* WebGL Canvas */}
       <div ref={ctnDom} style={{ width: "100%", height: "100%" }} />
 

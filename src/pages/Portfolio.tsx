@@ -50,7 +50,7 @@ const serviceData = [
 // Service page  
 const Portfolio = () => {
   return (
-    <>
+    <div id='Portfolio'>
       <ServiceContainer>
         {/* Heading */}
         <div className="mb-20">
@@ -72,7 +72,7 @@ const Portfolio = () => {
           ))}
         </div>
       </ServiceContainer>      
-    </>
+    </div>
   );
 };
 
