@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from "react"
+
 import HeroSection from "../pages/HeroSection"
 import Service from "../pages/Service"
 import Footer from "../pages/Footer"
@@ -22,5 +22,4 @@ function Wrapper() {
     </div>
   )
 }
-
-export default React.memo(Wrapper)
+export default Wrapper
