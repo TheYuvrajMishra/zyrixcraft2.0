@@ -7,7 +7,7 @@ export default function Orb({
   rotateOnHover = true,
   forceHoverState = false
 }) {
-  const ctnDom = useRef(null);
+  const ctnDom = useRef<HTMLDivElement | null>(null);
 
   const vert = /* glsl */ `
     precision highp float;
@@ -220,7 +220,11 @@ export default function Orb({
     let currentRot = 0;
     const rotationSpeed = 0.3; // radians per second
 
-    const handleMouseMove = (e) => {
+    interface MouseMoveEvent extends MouseEvent {
+      currentTarget: EventTarget & HTMLDivElement;
+    }
+
+    const handleMouseMove = (e: MouseMoveEvent) => {
       const rect = container.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -233,9 +237,9 @@ export default function Orb({
       const uvY = ((y - centerY) / size) * 2.0;
 
       if (Math.sqrt(uvX * uvX + uvY * uvY) < 0.8) {
-        targetHover = 1;
+      targetHover = 1;
       } else {
-        targetHover = 0;
+      targetHover = 0;
       }
     };
 
@@ -246,7 +250,7 @@ export default function Orb({
     container.addEventListener("mousemove", handleMouseMove);
     container.addEventListener("mouseleave", handleMouseLeave);
 
-    let rafId;
+    let rafId: number;
     const update = (t) => {
       rafId = requestAnimationFrame(update);
       const dt = (t - lastTime) * 0.001;
