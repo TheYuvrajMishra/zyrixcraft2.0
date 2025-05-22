@@ -82,12 +82,13 @@ const Footer = () => {
                             <p>
                                 <span>Phone: </span>
                                 <a href="tel:+91971162592" className="underline">
-                                    +91 97116 25392
+                                    +91 97171 02529
                                 </a>
                             </p>
                             <p>
-                                New Delhi - 110044, Near Union Bank<br />
-                                Said Village
+                                Address :- Aali Village ,Near Union Bank<br />
+                                New Delhi, India <br/><br/>
+                                Pin :- 110076
                             </p>
                         </div>
                     </div>
